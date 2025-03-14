@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="model.Admin" %>
+<%
+    Admin admin = (Admin) session.getAttribute("admin");
+%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -31,37 +35,38 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.jsp">Hiệu Thuốc Bùi Phúc</a>
+            <a class="navbar-brand" href="bhp_index.jsp">Hiệu Thuốc Bùi Phúc</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.jsp">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.jsp">Đăng nhập</a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.jsp">Đăng ký</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin.jsp">Quản lý</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="bhp_index.jsp">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bhp_SanPhamServlet">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bhp_datlich.jsp">Đặt lịch</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bhp_appointments ">Lịch sử đặt lịch</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bhp_QuanLyDonHangServlet">Quản lý đơn hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bhp_QuanLyNguoiDungServlet">Quản lý người dùng</a></li>
+                    <% if (admin != null) { %>
+                        <li class="nav-item"><a class="nav-link" href="bhp_LogoutServlet">Đăng xuất</a></li>
+                    <% } %>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="hero">
         <h1>Chào mừng đến với Hiệu Thuốc Đông Y Bùi Phúc</h1>
     </div>
 
-    <!-- Nội dung chính -->
     <div class="container text-center my-4">
         <h3>Quản lý hiệu thuốc dễ dàng & hiệu quả</h3>
         <p>Hệ thống giúp bạn theo dõi kho thuốc, đơn hàng và thông tin khách hàng một cách chuyên nghiệp.</p>
-        <a href="register.jsp" class="btn btn-success">Bắt đầu ngay</a>
+        <a href="bhp_register.jsp" class="btn btn-success">Bắt đầu ngay</a>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 Hiệu Thuốc Bùi Phúc | Designed by YourName</p>
     </footer>

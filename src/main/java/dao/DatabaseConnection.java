@@ -5,26 +5,19 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/Buihuuphuc_2210900055_project3";
-    private static final String JDBC_USER = "root"; // Thay bằng username của MySQL
-    private static final String JDBC_PASSWORD = "buiphuc3d3"; // Thay bằng mật khẩu của MySQL
+	private static final String URL = 
+			  "jdbc:mysql://localhost:3306/Buihuuphuc_2210900055_project3?useUnicode=true&characterEncoding=UTF-8";
+    private static final String USER = "root";
+    private static final String PASSWORD = "Mao2462004";
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() {
+        Connection conn = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Lỗi tải JDBC Driver!", e);
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Load MySQL JDBC Driver
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
-    }
-
-    public static void closeConnection(Connection conn) {
-        if (conn != null) {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        return conn;
     }
 }

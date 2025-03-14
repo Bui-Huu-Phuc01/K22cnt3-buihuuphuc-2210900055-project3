@@ -47,16 +47,16 @@
                             <tbody>
                                 <%-- Lấy danh sách admin từ request attribute --%>
                                 <c:forEach var="admin" items="${adminList}">
-                                    <tr>
-                                        <td>${admin.id}</td>
-                                        <td>${admin.username}</td>
-                                        <td>${admin.email}</td>
-                                        <td>
-                                            <a href="editAdmin.jsp?id=${admin.id}" class="btn btn-warning btn-sm">Sửa</a>
-                                            <a href="deleteAdmin?id=${admin.id}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">Xóa</a>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+    <tr>
+        <td>${admin.bhp_admin_id}</td>
+        <td>${admin.bhp_username}</td>
+        <td>${admin.bhp_email}</td>
+        <td>
+            <a href="editAdmin.jsp?id=${admin.bhp_admin_id}" class="btn btn-warning btn-sm">Sửa</a>
+            <a href="deleteAdmin?id=${admin.bhp_admin_id}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">Xóa</a>
+        </td>
+    </tr>
+</c:forEach>
                             </tbody>
                         </table>
                     </div>
